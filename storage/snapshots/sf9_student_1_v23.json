@@ -1,0 +1,44 @@
+{
+    "generated_at": "2025-12-29 10:21:53",
+    "generated_by_user_id": 2,
+    "generated_by_role": "TEACHER",
+    "student": {
+        "id": 1,
+        "lrn": "123456789012",
+        "name": "NOJAPA, KIRSTEIN GENZEN",
+        "section": "G-11 Mabini"
+    },
+    "school": {
+        "school_name": "Ampayon National High School",
+        "principal_name": "SOLEDAD M. RUBILLOS"
+    },
+    "adviser": "JOPIA, ELMA JOY",
+    "school_year": "2024-2025",
+    "subjects": [
+        {
+            "subject_name": "English for Academic and Professional Purposes",
+            "subject_code": "ENG12",
+            "final_grade": null,
+            "remarks": ""
+        },
+        {
+            "subject_name": "English for Academic and Professional Purposes",
+            "subject_code": "ENG12",
+            "final_grade": null,
+            "remarks": ""
+        },
+        {
+            "subject_name": "English for Academic and Professional Purposes",
+            "subject_code": "ENG12",
+            "final_grade": "88.50",
+            "remarks": "PASSED"
+        },
+        {
+            "subject_name": "General Mathematics",
+            "subject_code": "MATH12",
+            "final_grade": "91.00",
+            "remarks": "PASSED"
+        }
+    ],
+    "gwa": 89.75
+}

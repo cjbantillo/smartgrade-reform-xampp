@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: "Times New Roman", serif;
+        margin: 0;
+        padding: 50px;
+        background: #fff;
+        color: #000;
+        text-align: center;
+      }
+      .certificate {
+        border: 15px double #1e6d4a;
+        padding: 60px;
+        max-width: 1000px;
+        margin: auto;
+        position: relative;
+        background: #fff;
+      }
+      .header {
+        margin-bottom: 40px;
+      }
+      .header h1 {
+        font-size: 48px;
+        margin: 20px 0;
+        color: #1e6d4a;
+      }
+      .header h2 {
+        font-size: 36px;
+        margin: 10px 0;
+        font-style: italic;
+      }
+      .student-name {
+        font-size: 52px;
+        font-weight: bold;
+        margin: 60px 0;
+        color: #1e6d4a;
+        text-transform: uppercase;
+      }
+      .honors {
+        font-size: 32px;
+        margin: 30px 0;
+        color: #b8860b;
+        font-style: italic;
+      }
+      .body-text {
+        font-size: 24px;
+        line-height: 1.8;
+        margin: 40px 0;
+      }
+      .signatures {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 100px;
+        font-size: 20px;
+      }
+      .signature {
+        text-align: center;
+      }
+      .signature-line {
+        border-top: 2px solid #000;
+        width: 300px;
+        margin: 20px auto;
+      }
+      .date {
+        margin-top: 60px;
+        font-size: 22px;
+      }
+      .watermark {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        font-size: 100px;
+        color: rgba(255, 0, 0, 0.15);
+        font-weight: bold;
+        pointer-events: none;
+        z-index: -1;
+        white-space: nowrap;
+      }
+      .seal {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 120px;
+        color: rgba(30, 109, 74, 0.1);
+        font-weight: bold;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <?php if ($is_student_view): ?>
+    <div class="watermark">Official Copy – Student View</div>
+    <?php endif; ?>
+    <div class="header">
+      <?php if ($school['logo_path'] && file_exists('../../' . $school['logo_path'])): ?>
+      <img
+        src="../../<?= htmlspecialchars($school['logo_path']) ?>"
+        style="height: 100px; margin-bottom: 20px"
+        alt="School Logo"
+      />
+      <?php endif; ?>
+      <h1>DEPARTMENT OF EDUCATION</h1>
+      <!-- rest -->
+    </div>
+    <div class="certificate">
+      <div class="seal">SCHOOL SEAL</div>
+
+      <div class="header">
+        <h2>Republic of the Philippines</h2>
+        <h2>Department of Education</h2>
+        <h1>CERTIFICATE OF COMPLETION</h1>
+        <h2>Senior High School</h2>
+      </div>
+
+      <p class="body-text">This is to certify that</p>
+
+      <div class="student-name">
+        <?= htmlspecialchars($student['last_name'] . ', ' . $student['first_name']) ?>
+      </div>
+
+      <?php if ($honors): ?>
+      <div class="honors">
+        with
+        <?= htmlspecialchars($honors) ?>
+      </div>
+      <?php endif; ?>
+
+      <p class="body-text">
+        has satisfactorily completed the requirements for<br />
+        Senior High School as prescribed by the Department of Education<br />
+        in
+        <?= htmlspecialchars($school['school_name']) ?>
+      </p>
+
+      <p class="body-text">
+        Given this
+        <?= date('jS') ?>
+        day of
+        <?= date('F Y') ?>,<br />
+        at
+        <?= htmlspecialchars($school['school_name']) ?>, Philippines.
+      </p>
+
+      <div class="signatures">
+        <div class="signature">
+          <div class="signature-line"></div>
+          <strong><?= htmlspecialchars($adviser_name) ?></strong><br />
+          Class Adviser
+        </div>
+
+        <div class="signature">
+          <div class="signature-line"></div>
+          <strong><?= htmlspecialchars($school['principal_name']) ?></strong
+          ><br />
+          School Principal
+        </div>
+      </div>
+
+      <div class="date">
+        Date Issued:
+        <?= date('F d, Y') ?>
+      </div>
+    </div>
+  </body>
+</html>

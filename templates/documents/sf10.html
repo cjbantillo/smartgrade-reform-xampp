@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 30px;
+        font-size: 12px;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .header h1 {
+        font-size: 24px;
+        margin: 5px;
+      }
+      .student-info {
+        margin: 20px 0;
+        font-size: 14px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th,
+      td {
+        border: 1px solid #000;
+        padding: 10px;
+        text-align: center;
+      }
+      th {
+        background: #f0f0f0;
+      }
+      .year-header {
+        background: #d0d0d0;
+        font-weight: bold;
+      }
+      .subject {
+        text-align: left;
+        padding-left: 20px;
+      }
+      .gwa {
+        font-weight: bold;
+        font-size: 16px;
+        text-align: right;
+        margin: 30px 0;
+      }
+      .footer {
+        margin-top: 60px;
+        text-align: center;
+      }
+      .watermark {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        font-size: 80px;
+        color: rgba(255, 0, 0, 0.15);
+        pointer-events: none;
+        z-index: -1;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <?php if ($is_student_view): ?>
+    <div class="watermark">Official Copy – Student View</div>
+    <?php endif; ?>
+
+    <div class="header">
+      <?php if ($school['logo_path'] && file_exists('../../' . $school['logo_path'])): ?>
+      <img
+        src="../../<?= htmlspecialchars($school['logo_path']) ?>"
+        style="height: 100px; margin-bottom: 20px"
+        alt="School Logo"
+      />
+      <?php endif; ?>
+      <h1>DEPARTMENT OF EDUCATION</h1>
+      <!-- rest -->
+    </div>
+
+    <div class="header">
+      <h1>DEPARTMENT OF EDUCATION</h1>
+      <h1>PERMANENT RECORD (SF10)</h1>
+      <p>
+        School:
+        <?= htmlspecialchars($school['school_name']) ?>
+        | S.Y.
+        <?= htmlspecialchars($current_year) ?>
+      </p>
+    </div>
+
+    <div class="student-info">
+      <p>
+        <strong>Name:</strong>
+        <?= htmlspecialchars($student['last_name'] . ', ' . $student['first_name']) ?>
+      </p>
+      <p>
+        <strong>LRN:</strong>
+        <?= htmlspecialchars($student['lrn']) ?>
+      </p>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th class="subject">Learning Areas</th>
+          <th>Grade 11</th>
+          <th>Grade 12</th>
+          <th>Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($subjects as $subj): ?>
+        <tr>
+          <td class="subject">
+            <?= htmlspecialchars($subj['subject_name']) ?>
+          </td>
+          <td>
+            <?= $subj['g11_grade'] ? number_format($subj['g11_grade'], 2) : '-' ?>
+          </td>
+          <td>
+            <?= $subj['g12_grade'] ? number_format($subj['g12_grade'], 2) : '-' ?>
+          </td>
+          <td><?= $subj['remarks'] ?? '' ?></td>
+        </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+
+    <div class="gwa">
+      General Weighted Average: Grade 11:
+      <?= $gwa_g11 ? number_format($gwa_g11, 2) : 'N/A' ?>
+      | Grade 12:
+      <?= $gwa_g12 ? number_format($gwa_g12, 2) : 'N/A' ?>
+    </div>
+
+    <div class="footer">
+      <p>Prepared by: ___________________________</p>
+      <p>
+        <?= htmlspecialchars($adviser_name) ?>
+        | Class Adviser
+      </p>
+      <p>Certified Correct:</p>
+      <p>
+        <?= htmlspecialchars($school['principal_name']) ?>
+        | School Principal
+      </p>
+      <p>
+        Date Generated:
+        <?= date('F d, Y') ?>
+      </p>
+    </div>
+  </body>
+</html>

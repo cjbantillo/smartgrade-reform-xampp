@@ -1,0 +1,12 @@
+{
+    "require": {
+        "dompdf/dompdf": "^3.1",
+        "tecnickcom/tcpdf": "^6.10",
+        "setasign/fpdi": "^2.6",
+        "setasign/fpdf": "^1.8",
+        "setasign/fpdi-tcpdf": "^2.3"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.92"
+    }
+}
