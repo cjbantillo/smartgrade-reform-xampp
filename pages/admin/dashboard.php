@@ -56,6 +56,7 @@ $school = $stmt->fetch();
     <div class="nav">
         <a href="../../index.php">← Home</a> |
         <a href="../adviser/document_center.php">Adviser Document Center</a> |
+        <a href="school_settings.php">School Settings & Logo</a> |
         <a href="../../pages/logout.php">Logout</a>
     </div>
 
