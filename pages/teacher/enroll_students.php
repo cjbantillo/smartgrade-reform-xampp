@@ -246,6 +246,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_student_id']))
     <?php endif; ?>
 
     <h3>📋 Currently Enrolled Students</h3>
+    <p><strong>Currently Enrolled:</strong> <?= count($enrolled_students) ?> students</p>
     <?php if (empty($enrolled_students)): ?>
         <p>No students enrolled yet.</p>
     <?php else: ?>

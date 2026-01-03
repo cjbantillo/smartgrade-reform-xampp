@@ -218,7 +218,14 @@ if ($selected_section_id > 0) {
                 Previous SF9 has been revoked. You can now generate a corrected version.
             </div>
         <?php endif; ?>
-
+        <div style="text-align:center; margin:30px 0;">
+            <a href="preview_certificate.php"
+                class="btn"
+                style="background:#8b4513; padding:14px 28px; font-size:18px;"
+                target="_blank">
+                🎓 Preview Certificate Template
+            </a>
+        </div>
         <div class="section-selector">
             <label><strong>Select Section:</strong></label><br><br>
             <select onchange="if(this.value) window.location='document_center.php?section_id='+this.value">
@@ -267,6 +274,10 @@ if ($selected_section_id > 0) {
                                     class="btn-generate"
                                     title="Generate new version">
                                     📄 Generate New
+                                </a>
+                                <a href="generate_certificate.php?student_id=<?= $stu['student_id'] ?>"
+                                    class="btn-generate" style="background:#8b4513; margin-top:10px;">
+                                    🎓 Generate Completion Certificate
                                 </a>
 
                                 <!-- View Latest (Clean) -->

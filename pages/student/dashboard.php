@@ -46,6 +46,18 @@ $stmt = $pdo->prepare("
 ");
 $stmt->execute([$student['student_id']]);
 $latest_sf9 = $stmt->fetch();
+
+// Fetch latest active certificate
+$stmt = $pdo->prepare("
+    SELECT document_id, version, created_at
+    FROM documents
+    WHERE student_id = ? 
+      AND document_type = 'CERTIFICATE' 
+      AND is_active = TRUE
+    ORDER BY version DESC LIMIT 1
+");
+$stmt->execute([$student['student_id']]);
+$latest_certificate = $stmt->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -152,6 +164,38 @@ $latest_sf9 = $stmt->fetch();
         <div class="nav">
             <a href="../../index.php">← Home</a> |
             <a href="../../pages/logout.php">Logout</a>
+        </div>
+
+        <div class="card">
+            <h2>📊 My Grades (2024-2025)</h2>
+
+            <?php if (empty($grades_by_semester)): ?>
+                <p style="text-align:center; color:#666;">No grades recorded yet.</p>
+            <?php else: ?>
+                <?php foreach ($grades_by_semester as $semester => $subjects): ?>
+                    <h3><?= htmlspecialchars($semester) ?></h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>LRN</th>
+                                <th>Student Name</th>
+                                <th>Final Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($grades as $grade): ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($grade['lrn']) ?></td>
+                                    <td><strong><?= htmlspecialchars($grade['last_name'] . ', ' . $grade['first_name']) ?></strong></td>
+                                    <td class="final">
+                                        <?= $grade['final_grade'] ? number_format($grade['final_grade'], 2) : '<span class="pending">Pending</span>' ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
 
         <div class="card">
