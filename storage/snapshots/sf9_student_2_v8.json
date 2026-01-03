@@ -1,0 +1,68 @@
+{
+    "generated_at": "2026-01-03 08:27:14",
+    "generated_by_user_id": 5,
+    "generated_by_role": "TEACHER",
+    "student": {
+        "id": 2,
+        "lrn": "123456789122",
+        "name": "Bantillo, Christian James",
+        "section": "G-11 Mabini"
+    },
+    "school": {
+        "school_name": "Ampayon National High School",
+        "principal_name": "SOLEDAD M. RUBILLOS"
+    },
+    "adviser": "Dela Cruz, Juan",
+    "school_year": "2024-2025",
+    "subjects": [
+        {
+            "subject_name": "English for Academic and Professional Purposes",
+            "subject_code": "ENG12",
+            "final_grade": null,
+            "remarks": ""
+        },
+        {
+            "subject_name": "English for Academic and Professional Purposes",
+            "subject_code": "ENG12",
+            "final_grade": null,
+            "remarks": ""
+        },
+        {
+            "subject_name": "English for Academic and Professional Purposes",
+            "subject_code": "ENG12",
+            "final_grade": null,
+            "remarks": ""
+        },
+        {
+            "subject_name": "English for Academic and Professional Purposes",
+            "subject_code": "ENG12",
+            "final_grade": null,
+            "remarks": ""
+        },
+        {
+            "subject_name": "General Mathematics",
+            "subject_code": "MATH12",
+            "final_grade": null,
+            "remarks": ""
+        },
+        {
+            "subject_name": "General Mathematics",
+            "subject_code": "MATH12",
+            "final_grade": null,
+            "remarks": ""
+        },
+        {
+            "subject_name": "General Mathematics",
+            "subject_code": "MATH12",
+            "final_grade": null,
+            "remarks": ""
+        },
+        {
+            "subject_name": "General Mathematics",
+            "subject_code": "MATH12",
+            "final_grade": null,
+            "remarks": ""
+        }
+    ],
+    "gwa": null
+}

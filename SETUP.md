@@ -15,7 +15,7 @@ This guide will help you set up and run SMARTGRADE on your local machine (XAMPP 
 
 1. Download the latest SMARTGRADE release or clone the repository.
 2. Extract the contents to your web server directory:
-   - XAMPP: `C:\xampp\htdocs\smartgrade-reformed`
+   - XAMPP: `C:\xampp\htdocs\smartgrade-reformed` 
 
 ## Step 2: Install Dependencies
 
